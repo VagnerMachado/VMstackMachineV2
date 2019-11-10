@@ -1,0 +1,123 @@
+0: goto 122
+1: fconst 3.14159
+2: freturn
+3: fload 0
+4: fload 0
+5: fmul
+6: freturn
+7: invoke 1, 0, 0
+8: fload 1
+9: invoke 3, 1, 0
+10: fmul
+11: fload 0
+12: fmul
+13: freturn
+14: iload 0
+15: iload 1
+16: iadd
+17: intToFloat
+18: fload 2
+19: fload 3
+20: fdiv
+21: fmul
+22: freturn
+23: iload 0
+24: iload 1
+25: isub
+26: istore 2
+27: iload 2
+28: iconst 0
+29: icmplt 33
+30: iload 2
+31: iconst 10
+32: icmplt 35
+33: iconst 6453
+34: ireturn
+35: iconst -1540
+36: ireturn
+37: iload 0
+38: iconst 0
+39: icmpge 42
+40: iconst -1
+41: ireturn
+42: iload 0
+43: iconst 0
+44: icmplt 50
+45: iload 0
+46: iconst 10
+47: icmpge 50
+48: iconst 5
+49: ireturn
+50: iload 0
+51: iconst 10
+52: icmplt 58
+53: iload 0
+54: iconst 20
+55: icmpge 58
+56: iconst 15
+57: ireturn
+58: iconst 25
+59: ireturn
+60: iload 0
+61: iconst 0
+62: icmpne 65
+63: iconst 1
+64: ireturn
+65: iload 0
+66: iload 0
+67: iconst 1
+68: isub
+69: invoke 60, 1, 0
+70: imul
+71: ireturn
+72: invoke 1, 0, 0
+73: fstore 0
+74: print 0
+75: fconst 0.0078045
+76: invoke 3, 1, 0
+77: fstore 1
+78: print 1
+79: fconst 23.5
+80: fconst 5600.0
+81: invoke 7, 2, 0
+82: fstore 1
+83: print 1
+84: iconst 10
+85: iconst 20
+86: fconst 3400.0
+87: fconst 0.5
+88: invoke 14, 4, 0
+89: fstore 1
+90: print 1
+91: iconst 10
+92: iconst 20
+93: invoke 23, 2, 1
+94: istore 2
+95: print 2
+96: iconst 10
+97: iconst 5
+98: invoke 23, 2, 1
+99: istore 2
+100: print 2
+101: iconst -5
+102: invoke 37, 1, 0
+103: istore 2
+104: print 2
+105: iconst 5
+106: invoke 37, 1, 0
+107: istore 2
+108: print 2
+109: iconst 15
+110: invoke 37, 1, 0
+111: istore 2
+112: print 2
+113: iconst 25
+114: invoke 37, 1, 0
+115: istore 2
+116: print 2
+117: iconst 10
+118: invoke 60, 1, 0
+119: istore 2
+120: print 2
+121: return
+122: invoke 72, 0, 3

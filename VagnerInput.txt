@@ -1,0 +1,53 @@
+
+goto 7 
+0:
+iconst 10
+iconst 10
+iadd
+intToFloat
+fconst 20.0
+fmul
+fstore 0
+print 0
+goto 89
+7:
+goto 0
+89:
+iconst 10
+fconst 20.0
+
+invoke 13, 2, 2
+istore 0
+print 0
+goto 55
+return
+13:
+fload 1
+iload 0
+
+intToFloat
+fmul
+fstore 2
+fload 2
+fload 2
+fcmpeq 34
+iconst 2
+iconst 5
+imul
+ireturn
+55:
+fconst 25.0
+iconst 5
+intToFloat
+fdiv
+fstore 0
+print 0
+goto 100
+34:
+iconst 10
+iconst 5
+imul
+
+ireturn
+
+100:

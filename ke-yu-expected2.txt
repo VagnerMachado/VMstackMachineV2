@@ -1,0 +1,168 @@
+0: goto 167
+1: iconst 0
+2: istore 1
+3: iconst 1
+4: istore 2
+5: iload 1
+6: iload 0
+7: icmpge 17
+8: iload 1
+9: iconst 1
+10: iadd
+11: istore 1
+12: iload 1
+13: iload 2
+14: imul
+15: istore 2
+16: goto 5
+17: iload 2
+18: ireturn
+19: iload 0
+20: iconst 1
+21: icmpgt 24
+22: iload 0
+23: ireturn
+24: iload 0
+25: iconst 1
+26: isub
+27: invoke 19, 1, 0
+28: iload 0
+29: iconst 2
+30: isub
+31: invoke 19, 1, 0
+32: iadd
+33: ireturn
+34: iload 0
+35: iload 1
+36: icmpne 39
+37: iload 0
+38: ireturn
+39: iload 0
+40: iload 1
+41: icmpge 48
+42: iload 0
+43: iload 1
+44: iload 0
+45: isub
+46: invoke 34, 2, 0
+47: ireturn
+48: iload 0
+49: iload 1
+50: isub
+51: iload 1
+52: invoke 34, 2, 0
+53: ireturn
+54: fload 0
+55: fload 1
+56: fadd
+57: fload 2
+58: fadd
+59: fload 3
+60: fadd
+61: fload 4
+62: fadd
+63: fload 0
+64: fload 1
+65: fsub
+66: fload 2
+67: fsub
+68: fload 3
+69: fsub
+70: fload 4
+71: fsub
+72: fmul
+73: fload 0
+74: fload 1
+75: fdiv
+76: fload 2
+77: fdiv
+78: fload 3
+79: fdiv
+80: fload 4
+81: fdiv
+82: fmul
+83: freturn
+84: iconst 0
+85: istore 2
+86: iconst 0
+87: istore 3
+88: iconst 0
+89: istore 4
+90: iload 4
+91: iload 0
+92: icmpge 120
+93: iconst 0
+94: istore 5
+95: iload 5
+96: iload 1
+97: icmpge 115
+98: iload 2
+99: iload 4
+100: iadd
+101: iload 5
+102: iadd
+103: istore 2
+104: iload 3
+105: iload 4
+106: iadd
+107: iload 5
+108: isub
+109: istore 3
+110: iload 5
+111: iconst 1
+112: iadd
+113: istore 5
+114: goto 95
+115: iload 4
+116: iconst 1
+117: iadd
+118: istore 4
+119: goto 90
+120: print 2
+121: print 3
+122: return
+123: iconst 10
+124: invoke 19, 1, 0
+125: istore 0
+126: print 0
+127: iconst 20
+128: invoke 19, 1, 0
+129: istore 0
+130: print 0
+131: iconst 2
+132: iconst 2
+133: iadd
+134: invoke 1, 1, 2
+135: invoke 19, 1, 0
+136: istore 0
+137: print 0
+138: iconst 10
+139: invoke 1, 1, 2
+140: iconst 15
+141: invoke 19, 1, 0
+142: iadd
+143: istore 0
+144: print 0
+145: iconst 84
+146: iconst 36
+147: invoke 34, 2, 0
+148: istore 0
+149: print 0
+150: iconst 79
+151: iconst 711
+152: invoke 34, 2, 0
+153: istore 0
+154: print 0
+155: fconst 84.0
+156: fconst 0.368
+157: fconst 3.0
+158: fconst 4.0
+159: fconst 29.0
+160: invoke 54, 5, 0
+161: fstore 1
+162: print 1
+163: iconst 100
+164: iconst 100
+165: invoke 84, 2, 4
+166: return
+167: invoke 123, 0, 2

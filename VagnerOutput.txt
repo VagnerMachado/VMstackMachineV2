@@ -1,0 +1,41 @@
+0: goto 10
+1: iconst 10
+2: iconst 10
+3: iadd
+4: intToFloat
+5: fconst 20.0
+6: fmul
+7: fstore 0
+8: print 0
+9: goto 11
+10: goto 1
+11: iconst 10
+12: fconst 20.0
+13: invoke 18, 2, 2
+14: istore 0
+15: print 0
+16: goto 30
+17: return
+18: fload 1
+19: iload 0
+20: intToFloat
+21: fmul
+22: fstore 2
+23: fload 2
+24: fload 2
+25: fcmpeq 37
+26: iconst 2
+27: iconst 5
+28: imul
+29: ireturn
+30: fconst 25.0
+31: iconst 5
+32: intToFloat
+33: fdiv
+34: fstore 0
+35: print 0
+36: goto 41
+37: iconst 10
+38: iconst 5
+39: imul
+40: ireturn

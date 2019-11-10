@@ -1,0 +1,182 @@
+	goto 7
+1:
+	iconst 0
+	istore 1
+	iconst 1
+	istore 2
+8:	iload 1
+	iload 0
+	icmpge 9
+	iload 1
+	iconst 1
+	iadd
+	istore 1
+	iload 1
+	iload 2
+	imul
+	istore 2
+	goto 8
+9:	iload 2
+	ireturn
+2:
+	iload 0
+	iconst 1
+	icmpgt 10
+	iload 0
+	ireturn
+10:	iload 0
+	iconst 1
+	isub
+	invoke 2, 1, 0
+	iload 0
+	iconst 2
+	isub
+	invoke 2, 1, 0
+	iadd
+	ireturn
+3:
+	iload 0
+	iload 1
+	icmpne 11
+	iload 0
+	ireturn
+11:	iload 0
+	iload 1
+	icmpge     12
+	iload 0
+	iload 1
+	iload 0
+	isub
+	invoke 3, 2, 0
+	ireturn
+12:	iload 0
+	iload 1
+	isub
+	iload 1
+	invoke 3, 2, 0
+	ireturn
+4:
+	fload 0
+	fload 1
+	fadd
+	fload 2
+	fadd
+	fload 3
+	fadd
+	fload 4
+	fadd
+	fload 0
+	fload 1
+	fsub
+	fload 2
+	fsub
+	fload 3
+	fsub
+	fload 4
+	fsub
+	fmul
+	fload 0
+	fload 1
+	fdiv
+	fload 2
+	fdiv
+	fload 3
+	fdiv
+	fload 4
+	fdiv
+	fmul
+	freturn
+5:
+	iconst 0
+	istore 2
+	iconst 0
+	istore 3
+	iconst 0
+	istore 4
+16:	iload 4
+	iload 0
+	icmpge 13
+	iconst 0
+	istore 5
+15:	iload 5
+	iload 1
+	icmpge 14
+	iload 2
+	iload 4
+	iadd
+	iload 5
+	iadd
+	istore 2
+	iload 3
+	iload 4
+	iadd
+	iload 5
+	isub
+	istore 3
+	iload 5
+	iconst 1
+	iadd
+	istore 5
+	goto 15
+14:	iload 4
+	iconst 1
+	iadd
+	istore 4
+	goto 16
+13:	print 2
+	print 3
+	return
+6:
+	iconst 10
+	invoke 2, 1, 0
+	istore 0
+	print 0
+
+	iconst 20
+	invoke 2, 1, 0
+	istore 0
+	print 0
+
+	iconst 2
+	iconst 2
+	iadd
+	invoke 1, 1, 2
+	invoke 2, 1, 0
+	istore 0
+	print 0
+
+	iconst 10
+	invoke 1, 1, 2
+	iconst 15
+	invoke 2, 1, 0
+	iadd
+	istore 0
+	print 0
+
+	iconst 84
+	iconst 36
+	invoke 3, 2, 0
+	istore 0
+	print 0
+	iconst 79
+	iconst 711
+	invoke 3, 2, 0
+	istore 0
+	print 0
+
+	fconst 84.0
+	fconst 36.8E-2
+	fconst 3.0
+	fconst 4.0
+	fconst 29.0
+	invoke 4, 5, 0
+	fstore 1
+	print 1
+
+	iconst 100
+	iconst 100
+	invoke 5, 2, 4
+
+	return
+7:
+	invoke 6, 0, 2

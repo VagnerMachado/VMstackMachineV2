@@ -1,0 +1,42 @@
+0: goto 41
+1: iload 0
+2: iconst 0
+3: icmpne 8
+4: iload 1
+5: iconst 1
+6: iadd
+7: ireturn
+8: iload 0
+9: iconst 0
+10: icmple 20
+11: iload 1
+12: iconst 0
+13: icmpne 20
+14: iload 0
+15: iconst 1
+16: isub
+17: iconst 1
+18: invoke 1, 2, 0
+19: return
+20: iload 0
+21: iconst 1
+22: isub
+23: iload 0
+24: iload 1
+25: iconst 1
+26: isub
+27: invoke 1, 2, 0
+28: invoke 1, 2, 0
+29: return
+30: iconst 2
+31: iconst 300
+32: invoke 1, 2, 0
+33: istore 0
+34: print 0
+35: iconst 3
+36: iconst 12
+37: invoke 1, 2, 0
+38: istore 0
+39: print 0
+40: return
+41: invoke 30, 0, 1

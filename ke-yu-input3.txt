@@ -1,0 +1,45 @@
+	goto 5
+1:
+	iload 0
+	iconst 0
+	icmpne 2
+	iload 1
+	iconst 1
+	iadd
+	ireturn
+2:      iload 0
+	iconst 0
+	icmple 3
+	iload 1
+	iconst 0
+	icmpne 3
+	iload 0
+	iconst 1
+	isub
+	iconst 1
+	invoke 1, 2, 0
+	return
+3:      iload 0
+	iconst 1
+	isub
+	iload 0
+	iload 1
+	iconst 1 
+	isub
+	invoke 1, 2, 0
+	invoke 1, 2, 0
+	return
+4:
+	iconst 2
+	iconst 300
+	invoke 1, 2, 0
+	istore 0
+	print 0
+	iconst 3
+	iconst 12
+	invoke 1, 2, 0
+	istore 0
+	print 0
+	return
+5:
+	invoke 4, 0, 1
