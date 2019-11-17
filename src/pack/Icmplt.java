@@ -24,5 +24,16 @@ public class Icmplt extends Compare
 	{
 		return jump;
 	}
+	
+	@Override
+	public void execute() 
+	{
+		int top = (int) VM.operandStack.pop().getDataValue();
+		int bottom = (int) VM.operandStack.pop().getDataValue();
+		if(bottom < top)
+			VM.programCounter = jump;
+		else
+			VM.programCounter++;
+	}
 
 }

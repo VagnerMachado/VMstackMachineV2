@@ -8,7 +8,7 @@ package pack;
  ***************************************************************************************************
  *
  */
-public abstract class Instruction 
+public abstract class Instruction
 {
 	/**
 	 * print - used to display the instruction data
@@ -22,4 +22,8 @@ public abstract class Instruction
 	 */
 	public abstract Object getValue();
 	
+	/**
+	 * defines the execution for each instruction
+	 */	
+	public abstract void execute();
 }

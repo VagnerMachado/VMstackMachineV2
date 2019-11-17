@@ -17,4 +17,11 @@ public class Return extends Instruction
 	{
 		return "return";
 	}
+
+	@Override
+	public void execute() 
+	{
+		VM.programCounter = VM.runtimeStack.peek().returnAddress;
+		VM.runtimeStack.pop();	
+	}
 }

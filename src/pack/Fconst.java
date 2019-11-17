@@ -2,7 +2,7 @@ package pack;
 
 public class Fconst extends Instruction
 {
-	double constant; //must work for float and float E
+	private double constant; //must work for float and float E
 
 	public Fconst(double d)
 	{
@@ -23,6 +23,15 @@ public class Fconst extends Instruction
 	public double getDataValue() {
 		
 		return constant;
+	}
+
+	@Override
+	public void execute() 
+	{
+		VM.operandStack.push(new FloatOperand(constant));
+		if(VM.operandStack.size() > VM.maxOperandStack)
+			VM.maxOperandStack = VM.operandStack.size();
+		VM.programCounter++;
 	}
 
 }

@@ -24,4 +24,15 @@ public class Fcmpeq extends Compare
 	{
 		return jump;
 	}
+	
+	@Override
+	public void execute() 
+	{
+		double top = (double) VM.operandStack.pop().getDataValue();
+		double bottom = (double) VM.operandStack.pop().getDataValue();
+		if(bottom == top)
+			VM.programCounter = jump;
+		else
+			VM.programCounter++;
+	}
 }

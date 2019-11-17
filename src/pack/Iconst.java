@@ -24,4 +24,14 @@ public class Iconst extends Instruction
 	{
 		return constant;
 	}
+
+	@Override
+	public void execute() 
+	{
+		VM.operandStack.push(new IntegerOperand(constant));
+		if(VM.operandStack.size() > VM.maxOperandStack)
+			VM.maxOperandStack = VM.operandStack.size();
+		VM.programCounter++;
+	}
+	
 }

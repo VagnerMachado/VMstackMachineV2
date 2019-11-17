@@ -19,4 +19,11 @@ public class Print extends Instruction
 	{
 		return value;
 	}
+
+	@Override
+	public void execute() 
+	{
+		System.out.println(VM.runtimeStack.peek().memory[value].getDataValue());
+		VM.programCounter++;		
+	}
 }

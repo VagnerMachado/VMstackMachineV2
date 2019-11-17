@@ -17,4 +17,11 @@ public class Freturn extends Instruction
 	{
 		return null;
 	}
+
+	@Override
+	public void execute() 
+	{
+		VM.programCounter = VM.runtimeStack.peek().returnAddress;
+		VM.runtimeStack.pop();		
+	}
 }

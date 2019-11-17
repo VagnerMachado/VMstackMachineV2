@@ -17,4 +17,13 @@ public class IntToFloat extends Instruction
 	{
 		return "intToFloat";
 	}
+
+	@Override
+	public void execute() 
+	{
+		VM.operandStack.push(new FloatOperand((double)((int)VM.operandStack.pop().getDataValue()) + 0.0));
+		if(VM.operandStack.size() > VM.maxOperandStack)
+			VM.maxOperandStack = VM.operandStack.size();
+		VM.programCounter++;
+	}
 }

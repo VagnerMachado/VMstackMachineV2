@@ -4,16 +4,16 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.Stack;
+import java.util.Stack; 
 
 
 /*************************************************************************************
  The objective of Project 3 is to build upon project 2, which purpose was to
  implement a top-down parser and an instruction store for our VM language. 
 
- Project 3 will contains a runtime Stack that holds Frame Objects. These contain
- an operand Stack and memory locations that will be used for processing the output given by
- project 2 via a stack based virtual machine. 
+ Project 3 will contains a runtime Stack that holds Frame Objects and an operand Stack 
+ for Data items. Each Frame has an array of memory locations for parameters and
+ needed variables plus the return address.
 
  *************************************************************************************
 
@@ -42,7 +42,7 @@ import java.util.Stack;
        "fcmpeq" | "fcmpne" | "fcmplt" | "fcmple" | "fcmpgt" | "fcmpge"
 
  **************************************************************************************
-    Some parameters for the program implementation:
+    Some parameters for the semantic  implementation:
 
     1. Implementation for the signed/unsigned integers is 32-bit int type, floating-point numbers
        is double-precision 64-bit double type.
@@ -84,7 +84,7 @@ public class VM extends LexVM
 	private static ArrayList<Integer> gotoTarget = new ArrayList<Integer>(); //used to check for label existence
 	private static ArrayList<Integer> invokeTarget = new ArrayList<Integer>(); //used to check for label existence
 
-	//Project 3 variables
+	//variables added for Project 3
 	protected static Stack <Frame> runtimeStack = new Stack<Frame>();
 	protected static int maxRuntimeStack = 0;
 	protected static Stack<Data> operandStack = new Stack<Data>();
@@ -102,20 +102,16 @@ public class VM extends LexVM
 		//System.out.println("\n************ LEXICAL ANALYSIS ************\n");
 		if(parseInput(inputFile))
 		{
-			//System.out.println("\n************ VIRTUAL MACHINE EXECUTION ************\n");
-			Frame main = new Frame(new Data[50], null);
-			runtimeStack.push(main);
-			if(runtimeStack.size() > maxRuntimeStack)
-				maxRuntimeStack = runtimeStack.size();
-			main.run();
-			System.out.println("Operand Stack Peak Size = " + maxOperandStack);
+			//or could add NULL at array location and test for null Instruction to stop
+			while(programCounter < arrayLocation) 
+				instructionArray[programCounter].execute();
+
+			System.out.println("\nOperand Stack Peak Size = " + maxOperandStack);
 			System.out.println("Runtime Stack Peak Size = " + maxRuntimeStack);
 			//System.out.println("\n** Virtual machine execution has ended **\n");	
 		}
 		else
-		{
 			System.out.println("\n** The virtual machine cannot execute because of error(s) on input **\n");
-		}
 	}
 
 	/**
@@ -654,16 +650,16 @@ public class VM extends LexVM
 
 		//returns false if there are lexical errors
 		if(Stream.IsStreamAvailable())
-			{/*System.out.println("** The input does not have lexical errors **\n");*/}
+		{/*System.out.println("** The input does not have lexical errors **\n");*/}
 		else
 		{
 			System.out.println("** The input has lexical errors **\n");
 			return false;
 		}
 		//System.out.println("** Lexical Analysis has ended **\n");
-			
+
 		//System.out.println("\n************ PARSING ************\n");
-		
+
 		//System.out.println("** Parsed the input **\n");
 		//checks if all targets are valid
 		invokeError = checkTarget(invokeTarget,jumpMap,"invoke");
@@ -677,7 +673,7 @@ public class VM extends LexVM
 			displayErrorsOnConsole(args[1]);
 			return false;
 		}
-		
+
 		//System.out.println("** Printing Map to console **\n");
 		//for (HashMap.Entry<Integer,Integer> entry : jumpMap.entrySet())  
 		//System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue()); 
@@ -794,7 +790,7 @@ public class VM extends LexVM
 			if(!map.containsKey(x))
 			{
 				temp = true;
-				Stream.displayln("Syntax Error: The jump target \"" + x + "\" is not defined for function " + name );
+				Stream.displayln("Semantic Error: The jump target \"" + x + "\" is not defined for function " + name );
 			}
 		return temp;
 	}
@@ -812,7 +808,7 @@ public class VM extends LexVM
 			if(!map.containsKey(x.getKey()))
 			{
 				temp = true;
-				Stream.displayln("Syntax Error: The jump target \"" + x.getKey() + "\" is not defined for function " + x.getValue());
+				Stream.displayln("Semantic Error: The jump target \"" + x.getKey() + "\" is not defined for function " + x.getValue());
 			}
 		return temp;
 	}

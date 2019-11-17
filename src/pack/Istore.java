@@ -20,4 +20,12 @@ public class Istore extends Instruction
 	{
 		return address;
 	}
+
+	@Override
+	public void execute() 
+	{
+		VM.runtimeStack.peek().memory[address] = VM.operandStack.pop();
+		VM.programCounter++;
+		
+	}
 }

@@ -24,4 +24,11 @@ public class Goto extends Instruction
 	{
 		return jump;
 	}
+
+	@Override
+	public void execute() 
+	{
+		VM.programCounter = jump;
+		
+	}
 }
